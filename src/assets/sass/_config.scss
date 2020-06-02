@@ -1,0 +1,59 @@
+$primary: #3f51b5;
+$secondary: #e91e63;
+$sm: 600px;
+$md: 960px;
+$lg: 1264px;
+
+
+// Resets
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+  outline: none;
+
+  body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      z-index: -5;
+    }
+     
+    &::-webkit-scrollbar-track {
+      // box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background: transparent;
+    }
+     
+    &::-webkit-scrollbar-thumb {
+      background-color: lighten($color: $primary, $amount: 10);
+      border-radius: 3px;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    user-select: none;
+  }
+}
+
+
+// Mixins
+
+@mixin overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba($color: #000000, $alpha: .5);
+}
+
+@mixin mq($size) {
+  @media screen and (min-width: $size) {
+    @content
+  }
+}
